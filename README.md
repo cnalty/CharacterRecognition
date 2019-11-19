@@ -10,11 +10,11 @@ If you wish to train on a data set with a different number of characters simply 
 the desired number of characters.
 
 ## Kaggle Results
-| Dataset | Date     | Score |
+| Dataset   | Date     | Score |
 |---------|----------|-------|
-| MINST   | 11/18/19 | 0.979 |
-| Minst   | 11/18/19 | 0.934 |
-|         |          |       |
+| Digit Recognizer    | 11/18/19 | 0.979 |
+| Digit Recognizer    | 11/18/19 | 0.934 |
+
 
 ## History of improvements
 
