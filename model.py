@@ -12,7 +12,6 @@ class CharNet(nn.Module):
         self.conv3 = nn.Conv2d(16, 16, kernel_size=3, padding=1)
         self.conv4 = nn.Conv2d(16, 16, kernel_size=3, padding=1)
         self.pool2 = nn.MaxPool2d(2)
-        self.conv5 = nn.Conv2d(16, 32, kernel_size=3)
 
 
 
@@ -29,8 +28,6 @@ class CharNet(nn.Module):
         out = self.conv4(out)
         out = F.relu(out)
         out = self.pool2(out)
-        #out = self.conv5(out)
-        #out = F.relu(out)
 
         out = out.view(out.size(0), -1)
 
