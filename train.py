@@ -3,10 +3,11 @@ from torch import nn
 from torch.autograd import Variable
 from Dataset import Minst_Dataset
 from model import CharNet
+import torch.optim.lr_scheduler
 
 BATCH_SIZE = 2048
-NUM_EPOCHS = 16
-LR_STEP_FREQUENCY = 10
+NUM_EPOCHS = 30
+LR_DECAY = 10
 
 
 def main():
@@ -33,27 +34,20 @@ def main():
         drop_last=True
     )
 
-    val_loader = torch.utils.data.DataLoader(
-        dataset,
-        batch_size=BATCH_SIZE,
-        shuffle=True,
-        num_workers=0,
-        drop_last=True
-    )
-
 
 
     criterion = nn.CrossEntropyLoss()
     criterion.cuda()
 
-    #lr_scheduler = torch.optim.lr_scheduler(optimizer, LR_STEP_FREQUENCY, gamma=0.1)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, LR_DECAY, gamma=0.1)
 
     # Training Loop
     for epoch in range(NUM_EPOCHS):
         train(model, optimizer, train_loader, criterion)
+        scheduler.step()
 
     # Save the model
-    torch.save(model.state_dict(), "weights.pth.tar")
+    torch.save(model.state_dict(), "wieghts.pth.tar")
 
 
 

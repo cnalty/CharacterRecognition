@@ -10,7 +10,7 @@ BATCH_SIZE = 2048
 def main():
     # Load model and data
     model = CharNet(10)
-    model.load_state_dict(torch.load("weights.pth.tar"))
+    model.load_state_dict(torch.load("wieghts.pth.tar"))
     model.cuda()
     print(model)
 
