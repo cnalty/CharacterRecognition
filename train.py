@@ -1,0 +1,80 @@
+import torch.utils.data
+from torch import nn
+from torch.autograd import Variable
+from Dataset import Minst_Dataset
+from model import CharNet
+
+BATCH_SIZE = 2048
+NUM_EPOCHS = 16
+LR_STEP_FREQUENCY = 10
+
+
+def main():
+    # Load model, dataset and set up gradient decent
+    model = CharNet()
+    model.cuda()
+
+    optimizer = torch.optim.SGD(
+        model.parameters(),
+        lr = 0.01,
+        momentum = 0.9,
+        weight_decay=1e-5
+    )
+
+    dataset = Minst_Dataset('train.csv')
+
+    train_loader = torch.utils.data.DataLoader(
+        dataset,
+        batch_size=BATCH_SIZE,
+        shuffle=True,
+        num_workers=0,
+        drop_last=True
+    )
+
+    val_loader = torch.utils.data.DataLoader(
+        dataset,
+        batch_size=BATCH_SIZE,
+        shuffle=True,
+        num_workers=0,
+        drop_last=True
+    )
+
+
+
+    criterion = nn.CrossEntropyLoss()
+    criterion.cuda()
+
+    #lr_scheduler = torch.optim.lr_scheduler(optimizer, LR_STEP_FREQUENCY, gamma=0.1)
+
+    # Training Loop
+    for epoch in range(NUM_EPOCHS):
+        train(model, optimizer, train_loader, criterion)
+
+    # Save the model
+    torch.save(model.state_dict(), "weights.pth.tar")
+
+
+
+def train(model, optimizer, train_loader, criterion):
+    model.train()
+
+    for batch_num, (data, label) in enumerate(train_loader):
+        data = data.cuda()
+        label = label.cuda()
+
+        output = model(data)
+
+        loss = criterion(output, label)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        if (batch_num + 1) % 10 == 0:
+            print("loss is " + str(loss.item()))
+
+
+
+
+
+
+if __name__ == "__main__":
+    main()
