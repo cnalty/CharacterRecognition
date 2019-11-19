@@ -11,12 +11,14 @@ LR_STEP_FREQUENCY = 10
 
 def main():
     # Load model, dataset and set up gradient decent
-    model = CharNet()
+    model = CharNet(10)
     model.cuda()
+    print(model)
+
 
     optimizer = torch.optim.SGD(
         model.parameters(),
-        lr = 0.01,
+        lr = .01,
         momentum = 0.9,
         weight_decay=1e-5
     )
