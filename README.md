@@ -12,7 +12,7 @@ the desired number of characters.
 ## Kaggle Results
 | Dataset   | Date     | Score |
 |---------|----------|-------|
-| Digit Recognizer    | 11/18/19 | 0.978 |
+| Digit Recognizer    | 11/21/19 | 0.978 |
 | Digit Recognizer    | 11/18/19 | **0.979** |
 | Digit Recognizer    | 11/18/19 | 0.934 |
 
