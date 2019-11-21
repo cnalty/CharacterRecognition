@@ -21,14 +21,14 @@ class CharNet(nn.Module):
 
     def forward(self, x):
         out = self.conv1(x)
-        out = F.relu(out)
         out = self.norm1(out)
+        out = F.relu(out)       
         out = self.conv2(out)
         out = F.relu(out)
         out = self.pool1(out)
         out = self.conv3(out)
-        out = F.relu(out)
         out = self.norm2(out)
+        out = F.relu(out)      
         out = self.conv4(out)
         out = F.relu(out)
         out = self.pool2(out)
