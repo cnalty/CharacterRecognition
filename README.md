@@ -12,8 +12,11 @@ the desired number of characters.
 ## Kaggle Results
 | Dataset   | Date     | Score |
 |---------|----------|-------|
+| Digit Recognizer    | 11/21/19 | **0.981** |
+| Digit Recognizer    | 11/21/19 | 0.978 |
 | Digit Recognizer    | 11/18/19 | 0.979 |
 | Digit Recognizer    | 11/18/19 | 0.934 |
+
 
 
 ## History of improvements
@@ -24,3 +27,25 @@ and a noticibly worse performance than after adding them. The network would stay
 It also caused the minimum loss to never surpase 0.1. After adding the batch normalization layers the models loss dropped
 significantly at the very begining of training, converged much quicker, and reached a lower final loss of approximately 0.04.
 This shows the importance of normalization for convolutional nets.
+
+## Version History / Experiments
+* 11/21/19 - Conv -> Batch Norm -> Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> FC -> FC
+  * Slight Improvement in Accuracy to 0.981
+* 11/21/19 - Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> FC -> FC
+  * Tested with shrinking last FC layer neurons, worse results than keeping constant neuron amount
+  * Approximately same loss as 1 FC
+* 11/21/19 - Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> FC
+  * Double filters in last Conv layer
+  * Approximately Same accuracy of 0.978
+* 11/21/19 - Conv -> Batch Norm -> Conv -> Max Pool -> Conv -> Batch Norm -> Conv -> Max Pool -> FC
+  * Batch Norms moved to before relu
+  * Slightly Faster convergence
+* 11/18/19 - Conv -> Batch Norm -> Conv -> Max Pool -> Conv -> Batch Norm -> Conv -> Max Pool -> FC
+  * Batch Norms were after relu
+  * Much faster Convergence
+  * Better Accuracy of 0.979
+* 11/18/19 - 2 Convs -> Max Pool -> 2 Convs -> Max Pool -> FC
+  * Slow Convergence
+  * 0.934 Accuracy
+* 11/18/19 - 2 Convs -> Max Pool -> 2 Convs -> Max Pool -> Conv -> FC
+  * Result - No Convergence
