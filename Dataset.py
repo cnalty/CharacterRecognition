@@ -2,7 +2,7 @@ import pandas as pd
 import torch
 import numpy as np
 
-class Minst_Dataset():
+class Mnist_Dataset():
     def __init__(self, data_file, type="train"):
         self.type = type
         raw_data = pd.read_csv(data_file)
@@ -31,7 +31,7 @@ def main():
     from PIL import Image
 
     w, h = 28, 28
-    dataset = Minst_Dataset('train.csv')
+    dataset = Mnist_Dataset('train.csv')
     for item, label in dataset:
         item = item.numpy()
         item = (item * 255).astype(np.uint8)[0]
