@@ -10,14 +10,19 @@ If you wish to train on a data set with a different number of characters simply 
 the desired number of characters.
 
 ## Kaggle Results
-| Dataset   | Date     | Score |
-|---------|----------|-------|
-| Digit Recognizer    | 11/21/19 | **0.984** |
-| Digit Recognizer    | 11/21/19 | 0.981 |
-| Digit Recognizer    | 11/21/19 | 0.978 |
-| Digit Recognizer    | 11/18/19 | 0.979 |
-| Digit Recognizer    | 11/18/19 | 0.934 |
-
+### Digit Recognizer
+| Date     | Score |
+|----------|-------|
+| 11/21/19 | **0.984** |
+| 11/21/19 | 0.981 |
+| 11/21/19 | 0.978 |
+| 11/18/19 | 0.979 |
+| 11/18/19 | 0.934 |
+    
+### Kannada MNIST
+| Date     | Score |
+|----------|-------|
+| 11/21/19 | **0.962** |
 
 
 ## History of improvements
