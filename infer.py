@@ -14,11 +14,9 @@ def main():
     model.cuda()
     print(model)
 
-    test = pd.read_csv('test.csv')
+    test = pd.read_csv('KannadaNumerals/test.csv')
 
 
-    criterion = nn.CrossEntropyLoss()
-    criterion.cuda()
     with open("predictions.csv", 'w+') as f:
         f.write("ImageId,Label\n")
         infer(model, test, f)
@@ -29,6 +27,7 @@ def infer(model, test, out_file):
 
     for index, row in test.iterrows():
         data = row.to_numpy(dtype=float) / 255.0
+        #data = data[1:]
         data = data.reshape(28,28)
         data = torch.tensor([[data]]).float()
         data = data.cuda()
