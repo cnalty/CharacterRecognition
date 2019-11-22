@@ -12,7 +12,8 @@ the desired number of characters.
 ## Kaggle Results
 | Dataset   | Date     | Score |
 |---------|----------|-------|
-| Digit Recognizer    | 11/21/19 | **0.981** |
+| Digit Recognizer    | 11/21/19 | **0.984** |
+| Digit Recognizer    | 11/21/19 | 0.981 |
 | Digit Recognizer    | 11/21/19 | 0.978 |
 | Digit Recognizer    | 11/18/19 | 0.979 |
 | Digit Recognizer    | 11/18/19 | 0.934 |
@@ -29,6 +30,9 @@ significantly at the very begining of training, converged much quicker, and reac
 This shows the importance of normalization for convolutional nets.
 
 ## Version History / Experiments
+* 11/21/19 - Conv -> Batch Norm -> Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> FC -> FC
+  * Doubled most Conv layers number of filters
+  * Slight Improvement in Accuracy to 0.984
 * 11/21/19 - Conv -> Batch Norm -> Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> FC -> FC
   * Slight Improvement in Accuracy to 0.981
 * 11/21/19 - Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> Conv -> Batch Norm -> Conv -> Batch Norm -> Max Pool -> FC -> FC
