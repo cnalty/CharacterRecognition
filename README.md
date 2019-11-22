@@ -12,7 +12,7 @@ the desired number of characters.
 ## Kaggle Results
 ### Digit Recognizer
 | Date     | Score |
-|---------|----------|-------|
+|----------|-------|
 | 11/21/19 | **0.984** |
 | 11/21/19 | 0.981 |
 | 11/21/19 | 0.978 |
@@ -21,7 +21,7 @@ the desired number of characters.
     
 ### Kannada MNIST
 | Date     | Score |
-|---------|----------|-------|
+|----------|-------|
 | 11/21/19 | **0.962** |
 
 
