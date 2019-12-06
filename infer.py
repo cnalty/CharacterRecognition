@@ -1,6 +1,5 @@
 import torch.utils.data
 from torch import nn
-from Dataset import Minst_Dataset
 from model import CharNet
 import pandas as pd
 
