@@ -1,7 +1,7 @@
 import torch.utils.data
 from torch import nn
 from torch.autograd import Variable
-from Dataset import Minst_Dataset
+from Dataset import Mnist_Dataset
 from model import CharNet
 import torch.optim.lr_scheduler
 
@@ -24,7 +24,7 @@ def main():
         weight_decay=1e-5
     )
 
-    dataset = Minst_Dataset('train.csv')
+    dataset = Mnist_Dataset('train.csv')
 
     train_loader = torch.utils.data.DataLoader(
         dataset,
